@@ -1,0 +1,54 @@
+name: Bug 报告
+description: 报告 Slang Lint 的检查错误、误报、漏报或崩溃
+labels: ["bug"]
+body:
+  - type: markdown
+    value: 提交前请先搜索 [已有 Issue](https://github.com/Sean74ls02/slang-lint/issues)，避免重复。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 遇到了什么问题
+      description: 期望发生什么，实际发生了什么
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 最小复现代码
+      description: 能触发问题的最小 .v / .sv 片段
+      render: verilog
+    validations:
+      required: true
+
+  - type: textarea
+    id: config
+    attributes:
+      label: 相关配置
+      description: 工作区里的 slangLint.* 配置（请隐去公司名、绝对路径等敏感信息）
+      render: json
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志
+      description: 输出面板 → Slang Lint 通道的内容
+      render: shell
+
+  - type: input
+    id: slang-version
+    attributes:
+      label: slang 版本
+      description: 终端执行 slang --version 的输出
+    validations:
+      required: true
+
+  - type: input
+    id: env
+    attributes:
+      label: 环境
+      description: 例如 VS Code 1.93 / Windows 11 / Slang Lint 0.1.4
+      placeholder: VS Code 1.93 / Windows 11 / Slang Lint 0.1.4
+    validations:
+      required: true

@@ -1,0 +1,36 @@
+name: Release
+
+# 推送 v* 标签时自动打包 .vsix 并挂到对应 Release
+# 用法：git tag v0.1.4 && git push origin v0.1.4
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile
+        run: npm run compile -- --production
+
+      - name: Package VSIX
+        run: npx @vscode/vsce package --no-dependencies --out slang-lint.vsix
+
+      - name: Attach VSIX to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: slang-lint.vsix
+          generate_release_notes: true

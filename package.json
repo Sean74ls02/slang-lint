@@ -1,0 +1,134 @@
+{
+	"name": "slang-lint",
+	"displayName": "Slang Lint",
+	"description": "基于 slang 的单文件语法检查：模块索引 + 显式传参，快速且通用，支持直接子模块端口连接检查",
+	"version": "0.1.5",
+	"publisher": "Sean74ls02",
+	"license": "MIT",
+	"author": "Sean74ls02",
+	"keywords": [
+		"verilog",
+		"systemverilog",
+		"slang",
+		"lint",
+		"syntax",
+		"hdl",
+		"rtl"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Sean74ls02/slang-lint"
+	},
+	"bugs": {
+		"url": "https://github.com/Sean74ls02/slang-lint/issues"
+	},
+	"homepage": "https://github.com/Sean74ls02/slang-lint#readme",
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"categories": [
+		"Linters",
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"workspaceContains:rtl",
+		"onStartupFinished"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "slangLint.lintCurrentFile",
+				"title": "Slang Lint: 检查当前文件"
+			},
+			{
+				"command": "slangLint.rebuildIndex",
+				"title": "Slang Lint: 重建模块索引"
+			}
+		],
+		"configuration": {
+			"title": "Slang Lint",
+			"properties": {
+				"slangLint.slangPath": {
+					"type": "string",
+					"default": "slang",
+					"description": "slang 可执行文件路径（默认从 PATH 查找；路径含空格时请填写绝对路径）"
+				},
+				"slangLint.scanDirs": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"default": [],
+						"description": "模块索引扫描目录（相对工作区根目录，如 rtl、ip）"
+					},
+					"slangLint.macroFiles": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"default": [],
+						"description": "全局宏定义文件（相对工作区根目录，最先编译）"
+					},
+					"slangLint.preludeFiles": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"default": [],
+						"description": "前置编译文件（interface 定义等，相对工作区根目录，在当前文件之前编译）"
+					},
+					"slangLint.includeDirs": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"default": [],
+						"description": "`include 搜索目录（相对工作区根目录，传给 slang -I）"
+					},
+				"slangLint.extraArgs": {
+					"type": "string",
+					"default": "",
+					"description": "附加 slang 参数（原样追加到命令行末尾）"
+				},
+				"slangLint.lintOnSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "保存文件时自动触发检查"
+				},
+				"slangLint.lintOnOpen": {
+						"type": "boolean",
+						"default": true,
+						"description": "打开文件时自动触发检查"
+					},
+					"slangLint.debounceMs": {
+						"type": "number",
+						"default": 1000,
+						"description": "连续触发时的防抖间隔（毫秒）"
+					},
+				"slangLint.showChildDiagnostics": {
+					"type": "boolean",
+					"default": false,
+					"description": "是否显示子模块文件中的诊断（默认只显示当前文件的诊断）"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "node ./esbuild.js",
+		"watch": "node ./esbuild.js --watch",
+		"typecheck": "tsc --noEmit",
+		"package": "npm run compile -- --production",
+		"vsix": "vsce package --no-dependencies"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.1",
+		"@types/node": "18.x",
+		"@types/vscode": "^1.75.0",
+		"@vscode/test-electron": "^2.2.2",
+		"esbuild": "^0.19.5",
+		"typescript": "^5.2.2",
+		"@vscode/vsce": "^2.22.0"
+	}
+}

@@ -1,0 +1,16 @@
+# 源码与构建配置不进 vsix
+.vscode/**
+.vscode-test/**
+.github/**
+src/**
+out/**
+node_modules/**
+.gitignore
+.editorconfig
+tsconfig.json
+esbuild.js
+CONTRIBUTING.md
+**/*.map
+**/*.ts
+
+# 发布必需：dist/extension.js、package.json、README.md、LICENSE、CHANGELOG.md

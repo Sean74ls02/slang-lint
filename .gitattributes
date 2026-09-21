@@ -1,0 +1,5 @@
+# 统一换行符：仓库内统一存 LF，Windows 检出时自动转 CRLF
+* text=auto
+
+*.vsix binary
+*.png binary
