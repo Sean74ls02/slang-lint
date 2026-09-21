@@ -2,10 +2,15 @@
 	"name": "slang-lint",
 	"displayName": "Slang Lint",
 	"description": "基于 slang 的单文件语法检查：模块索引 + 显式传参，快速且通用，支持直接子模块端口连接检查",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"publisher": "Sean74ls02",
 	"license": "MIT",
 	"author": "Sean74ls02",
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#172554",
+		"theme": "dark"
+	},
 	"keywords": [
 		"verilog",
 		"systemverilog",
@@ -120,7 +125,8 @@
 		"watch": "node ./esbuild.js --watch",
 		"typecheck": "tsc --noEmit",
 		"package": "npm run compile -- --production",
-		"vsix": "vsce package --no-dependencies"
+		"vsix": "vsce package --no-dependencies",
+		"publish": "vsce publish --no-dependencies"
 	},
 	"devDependencies": {
 		"@types/mocha": "^10.0.1",

@@ -28,17 +28,18 @@
 
 前置条件：**本机已安装 [slang](https://github.com/MikePopoloski/slang) 并加入 `PATH`**。终端执行 `slang --version` 能输出版本号即可（slang 不在 `PATH` 里时，可通过 `slangLint.slangPath` 填绝对路径）。
 
-安装插件二选一：
+安装插件三选一：
 
-1. **从源码构建**（当前推荐，插件尚未上架 Marketplace）
+1. **Marketplace 安装**（推荐）：VS Code 扩展面板搜索 `Slang Lint`，或直接打开 [Marketplace 页面](https://marketplace.visualstudio.com/items?itemName=Sean74ls02.slang-lint) 点 Install
+2. **直接下载**：从 [Releases](https://github.com/Sean74ls02/slang-lint/releases) 下载 `slang-lint.vsix`（打 tag 时由 CI 自动构建），然后 VS Code 命令面板 → `Extensions: Install from VSIX...` → 选择该 `.vsix` → 重载窗口
+3. **从源码构建**
    ```bash
    git clone https://github.com/Sean74ls02/slang-lint.git
    cd slang-lint
    npm install
-   npm run vsix      # 生成 slang-lint-0.1.5.vsix
+   npm run vsix      # 生成 slang-lint-0.1.6.vsix
    ```
    然后 VS Code 命令面板 → `Extensions: Install from VSIX...` → 选择该 `.vsix` → 重载窗口
-2. **直接下载**：从 [Releases](https://github.com/Sean74ls02/slang-lint/releases) 下载 `slang-lint.vsix`（打 tag 时由 CI 自动构建），再用上面的方式安装
 
 ## 使用
 

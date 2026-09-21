@@ -2,6 +2,17 @@
 
 本项目的版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
+## [0.1.6] - 2026-09-21
+
+### 新增
+
+- 扩展图标 `images/icon.png`（Marketplace 与扩展列表展示用）
+- `publish` 脚本（`vsce publish --no-dependencies`），用于发布到 VS Code Marketplace
+
+### 修复
+
+- 修正 CHANGELOG 中 0.1.4 条目指向不存在 GitHub Release 的死链（0.1.4 为开源前的内部版本，无对应 Release）
+
 ## [0.1.5] - 2026-09-21
 
 开源整理版本。插件行为与 0.1.4 完全一致，无功能变更。
@@ -24,9 +35,9 @@
 - `vsix` 脚本默认附加 `--no-dependencies`
 - LICENSE 由 `LICENSE.txt` 更名为 `LICENSE`（vsce 打包时仍会自动输出为 `LICENSE.txt`）
 
-## [0.1.4]
+## 0.1.4
 
-初始版本。
+初始版本（开源前的内部版本，无对应 GitHub Release）。
 
 ### 新增
 
@@ -40,5 +51,5 @@
 - 保存/打开/新建/删除/重命名时自动触发检查，带防抖与取消重跑
 - 输出面板 `Slang Lint` 通道：子模块数、未解析模块数、slang 耗时
 
+[0.1.6]: https://github.com/Sean74ls02/slang-lint/releases/tag/v0.1.6
 [0.1.5]: https://github.com/Sean74ls02/slang-lint/releases/tag/v0.1.5
-[0.1.4]: https://github.com/Sean74ls02/slang-lint/releases/tag/v0.1.4
