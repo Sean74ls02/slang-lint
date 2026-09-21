@@ -2,6 +2,12 @@
 
 本项目的版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
+## [0.1.7] - 2026-09-21
+
+### 变更
+
+- 扩展图标重新设计：像素风大写 "S"（0.1.6 的方波图形含义不直观）
+
 ## [0.1.6] - 2026-09-21
 
 ### 新增
@@ -51,5 +57,6 @@
 - 保存/打开/新建/删除/重命名时自动触发检查，带防抖与取消重跑
 - 输出面板 `Slang Lint` 通道：子模块数、未解析模块数、slang 耗时
 
+[0.1.7]: https://github.com/Sean74ls02/slang-lint/releases/tag/v0.1.7
 [0.1.6]: https://github.com/Sean74ls02/slang-lint/releases/tag/v0.1.6
 [0.1.5]: https://github.com/Sean74ls02/slang-lint/releases/tag/v0.1.5

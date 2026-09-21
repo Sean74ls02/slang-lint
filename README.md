@@ -37,7 +37,7 @@
    git clone https://github.com/Sean74ls02/slang-lint.git
    cd slang-lint
    npm install
-   npm run vsix      # 生成 slang-lint-0.1.6.vsix
+   npm run vsix      # 生成 slang-lint-0.1.7.vsix
    ```
    然后 VS Code 命令面板 → `Extensions: Install from VSIX...` → 选择该 `.vsix` → 重载窗口
 
