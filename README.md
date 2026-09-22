@@ -31,13 +31,13 @@
 安装插件三选一：
 
 1. **Marketplace 安装**（推荐）：VS Code 扩展面板搜索 `Slang Lint`，或直接打开 [Marketplace 页面](https://marketplace.visualstudio.com/items?itemName=Sean74ls02.slang-lint) 点 Install
-2. **直接下载**：从 [Releases](https://github.com/Sean74ls02/slang-lint/releases) 下载 `slang-lint.vsix`（打 tag 时由 CI 自动构建），然后 VS Code 命令面板 → `Extensions: Install from VSIX...` → 选择该 `.vsix` → 重载窗口
+2. **直接下载**：从 [Releases](https://github.com/Sean74ls02/slang-lint/releases) 下载 `slang-lint-<版本号>.vsix`（打 tag 时由 CI 自动构建），然后 VS Code 命令面板 → `Extensions: Install from VSIX...` → 选择该 `.vsix` → 重载窗口
 3. **从源码构建**
    ```bash
    git clone https://github.com/Sean74ls02/slang-lint.git
    cd slang-lint
    npm install
-   npm run vsix      # 生成 slang-lint-0.1.7.vsix
+   npm run vsix      # 生成 slang-lint-0.1.8.vsix
    ```
    然后 VS Code 命令面板 → `Extensions: Install from VSIX...` → 选择该 `.vsix` → 重载窗口
 
@@ -101,6 +101,7 @@
   `--ignore-unknown-modules` 保证不误报，最坏是端口检查不全
 - 深层子模块（二级以下）不做端口检查（设计取舍：端口连接检查只需直接子模块）
 - 批量新增文件后建议执行一次 `Slang Lint: 重建模块索引`
+- 仿真器私有系统任务（如 VCS 的 `$fsdbDumpfile` / `$fsdbDumpvars`）不在 IEEE 1364/1800 标准内，slang 会报 `unknown system name`。testbench 中属正常用法，可在**工作区配置** `slangLint.extraArgs` 追加 `-Wno-unknown-sys-name` 屏蔽该类报错（注意：该选项只屏蔽"未知系统任务名"一类，`$task` 名拼写错误也会被一并屏蔽）
 - 主要在 Windows 上验证；Linux / macOS 理论上可用但缺少实测
 
 ## 开发与打包

@@ -2,7 +2,7 @@
 	"name": "slang-lint",
 	"displayName": "Slang Lint",
 	"description": "基于 slang 的单文件语法检查：模块索引 + 显式传参，快速且通用，支持直接子模块端口连接检查",
-	"version": "0.1.7",
+	"version": "0.1.8",
 	"publisher": "Sean74ls02",
 	"license": "MIT",
 	"author": "Sean74ls02",

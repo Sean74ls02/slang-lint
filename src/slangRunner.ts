@@ -235,8 +235,8 @@ function tokenLengthAt(
 		lineCache.set(file, lines);
 	}
 	const text = lines[line0] ?? "";
-	// 含反引号：宏引用（如 `MACRO）整体划线
-	const m = /^`?[A-Za-z0-9_$]+/.exec(text.slice(col0));
+	// 含反引号：宏引用（如 `MACRO）整体划线；含前导点：层次引用成员（如 .u_xxx）整体划线
+	const m = /^`?\.?[A-Za-z0-9_$]+/.exec(text.slice(col0));
 	return m ? m[0].length : 1;
 }
 

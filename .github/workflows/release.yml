@@ -27,10 +27,11 @@ jobs:
         run: npm run compile -- --production
 
       - name: Package VSIX
-        run: npx @vscode/vsce package --no-dependencies --out slang-lint.vsix
+        # 不指定 --out：默认输出 slang-lint-<版本号>.vsix（版本号读自 package.json）
+        run: npx @vscode/vsce package --no-dependencies
 
       - name: Attach VSIX to release
         uses: softprops/action-gh-release@v2
         with:
-          files: slang-lint.vsix
+          files: slang-lint-*.vsix
           generate_release_notes: true

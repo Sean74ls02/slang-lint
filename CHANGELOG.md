@@ -2,6 +2,20 @@
 
 本项目的版本号遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
+## [0.1.8] - 2026-09-22
+
+### 变更
+
+- CI 构建的 vsix 附件带上版本号：从 `slang-lint.vsix` 改为 `slang-lint-0.1.8.vsix`（原先 `release.yml` 写死了输出名）
+
+### 修复
+
+- 层次引用（如 `top.u_inst.sig`）报错时，波浪线只覆盖成员名前的 `.`：slang 将该类诊断定位在点号上，划线长度计算现允许前导点，`.u_inst` 整体划线
+
+### 说明
+
+- 仿真器私有系统任务（如 VCS 的 `$fsdbDumpfile` / `$fsdbDumpvars`）不在 IEEE 1364/1800 标准内，slang 会报 `unknown system name`。属正常用法时，可在工作区配置 `slangLint.extraArgs` 追加 `-Wno-unknown-sys-name` 屏蔽该类报错（详见 README 已知限制）
+
 ## [0.1.7] - 2026-09-21
 
 ### 变更
@@ -57,6 +71,7 @@
 - 保存/打开/新建/删除/重命名时自动触发检查，带防抖与取消重跑
 - 输出面板 `Slang Lint` 通道：子模块数、未解析模块数、slang 耗时
 
+[0.1.8]: https://github.com/Sean74ls02/slang-lint/releases/tag/v0.1.8
 [0.1.7]: https://github.com/Sean74ls02/slang-lint/releases/tag/v0.1.7
 [0.1.6]: https://github.com/Sean74ls02/slang-lint/releases/tag/v0.1.6
 [0.1.5]: https://github.com/Sean74ls02/slang-lint/releases/tag/v0.1.5
